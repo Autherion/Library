@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+}
+
+.sidebar {
+  min-width: 100px;
+  background-color: #2185d5;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 300px;
+  padding: 15px;
+  color: #f2f2f2;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h1 {  
+  margin-top: 15px;
+}
+
+li {
+  list-style-type: none;
+}
+
+label {
+  display: block;
+  margin-top: 1em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  font-size: 15px;
+}
+
+input {
+  padding: .8em;
+  width: 15em;
+  border: solid 1px #999;
+}
+
+.checks, .checks > label {
+  display: inline-block;
+}
+
+input[type="checkbox"] {
+  width: 5em;
+  filter: invert(100%) hue-rotate(18deg) brightness(1.7);
+}
+
+.flex-outer {
+  margin: 10px;
+}
+
+.flex-outer li button {
+  padding: 8px 16px;
+  border: none;
+  background: #1363DF;
+  color: #f2f2f2;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  border-radius: 2px;
+  margin-top: 15px;
+}
+
+.flex-inner li {
+  width: 100px;
+}
+
+.flex-inner {
+  justify-content: space-between;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items:flex-start;
+  margin-top: 40px;
+  padding: 75px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  padding:10px; 
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+thead {
+  background-color: #DFF6FF;
+}
+
+tr:nth-child(even) {
+  background-color: #DFF6FF;
+}
+
+.deleteIcon {
+  background-image: url(../images/close_FILL0_wght400_GRAD0_opsz24.svg);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: block;
+}
+
+.checkedIcon {
+  background-image: url(../images/done_FILL0_wght400_GRAD0_opsz24.svg);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: block;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
