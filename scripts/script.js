@@ -1,36 +1,72 @@
 //getting all the DOM data from the user
-const title = document.getElementById("title")
-const year = document.getElementById("year")
-const author = document.getElementById("author")
-const pages = document.getElementById("pages")
-const read = document.getElementById("read")
-const tbody = document.getElementById("data")
-const submitBtn = document.getElementById("submit")
-const form = document.querySelector("form")
+const title = document.getElementById("title");
+const year = document.getElementById("year");
+const author = document.getElementById("author");
+const pages = document.getElementById("pages");
+const read = document.getElementById("read");
+const tbody = document.getElementById("data");
+const submitBtn = document.getElementById("submit");
+const form = document.querySelector("form");
 
-let myLibrary = []
+let myLibrary = [];
 
-function Book(title, year, author, pages, read){
-  //constructor for the Book
-    this.title = title
-    this.year = year
-    this.author = author
-    this.pages = pages
-    this.read = read
-}
+class Book {
+  constructor(title, year, author, pages, read) {
+    this.title = title;
+    this.year = year;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 
-Book.prototype.toggleRead = function() {
-  this.read = !this.read
+  get title() {
+    return this._title;
+  }
+
+  set title(value) {
+    this._title = value;
+  }
+
+  get year() {
+    return this._year;
+  }
+
+  set year(value) {
+    this._year = value;
+  }
+
+  get author() {
+    return this._author;
+  }
+
+  set author(value) {
+    this._author = value;
+  }
+
+  get pages() {
+    return this._pages;
+  }
+
+  set pages(value) {
+    this._pages = value;
+  }
+
+  get read() {
+    return this._read;
+  }
+
+  set read(value) {
+    this._read = value;
+  }
+
+  toggleRead() {
+    this._read = !this._read;
+  }
 }
 
 function addBookToLibrary(title, year, author, pages, read) {
-  newBook = Object.create(Book)
-  newBook.title = title
-  newBook.year = year
-  newBook.author = author
-  newBook.pages = pages
-  newBook.read = read
-  myLibrary.push(newBook)
+  let newBook = new Book(title, year, author, pages, read);
+  myLibrary.push(newBook);
 }
 
 function addBooksToTable() {
@@ -68,7 +104,8 @@ function DeleteRowFunction(e) {
 
 function changeIcon(e) {
   // store the position of the called array
-  let bookPosition = myLibrary[e.target.parentNode.parentNode.dataset.number]
+  let bookPosition = e.target.parentNode.parentNode.dataset.number
+  console.log(bookPosition)
   if (e.target.classList == "checkedIcon"){
     e.target.classList.remove("checkedIcon")
     e.target.classList.add("deleteIcon")
@@ -76,7 +113,7 @@ function changeIcon(e) {
     e.target.classList.remove("deleteIcon")
     e.target.classList.add("checkedIcon")
   }
-  myLibrary[bookPosition].read = !myLibrary[bookPosition].read
+  myLibrary[bookPosition].read = !myLibrary[bookPosition].read;
 }
 
 function clear() {
